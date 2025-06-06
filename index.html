@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Моё портфолио</title>
+  <style>
+    :root {
+      --accent: #ff3cac;
+      --bg: #fefefe;
+      --font: 'Segoe UI', sans-serif;
+    }
+    body {
+      margin: 0;
+      font-family: var(--font);
+      background-color: var(--bg);
+      color: #222;
+      transition: background 0.3s ease;
+    }
+    header {
+      padding: 2rem;
+      text-align: center;
+      background: linear-gradient(to right, #784ba0, #ff3cac);
+      color: white;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+    }
+    nav {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    nav button {
+      margin: 0 0.5rem;
+      padding: 0.5rem 1rem;
+      border: none;
+      background: var(--accent);
+      color: white;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: transform 0.2s;
+    }
+    nav button:hover {
+      transform: scale(1.05);
+    }
+    section {
+      padding: 3rem 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    h2 {
+      font-size: 2rem;
+      color: var(--accent);
+    }
+    .crazy {
+      transform: rotate(-1deg);
+      animation: pulse 3s infinite ease-in-out;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: rotate(-1deg); }
+      50% { transform: rotate(1deg); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1 class="crazy" data-en="Hi, I'm [Your Name]!" data-ru="Привет, я [Ваше имя]!">Привет, я [Ваше имя]!</h1>
+    <nav>
+      <button onclick="setLang('ru')">🇷🇺 Рус</button>
+      <button onclick="setLang('en')">🇬🇧 Eng</button>
+    </nav>
+  </header>
+
+  <section>
+    <h2 data-en="About Me" data-ru="О себе">О себе</h2>
+    <p data-en="I'm a passionate developer who loves clean code and weird animations."
+       data-ru="Я увлечённый разработчик, обожаю чистый код и странные анимации.">
+      Я увлечённый разработчик, обожаю чистый код и странные анимации.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-en="Skills" data-ru="Навыки">Навыки</h2>
+    <ul>
+      <li data-en="Java & Kotlin" data-ru="Java и Kotlin">Java и Kotlin</li>
+      <li data-en="Spring Boot & REST APIs" data-ru="Spring Boot и REST API">Spring Boot и REST API</li>
+      <li data-en="SQL & Databases" data-ru="SQL и базы данных">SQL и базы данных</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-en="Projects" data-ru="Проекты">Проекты</h2>
+    <p data-en="See my GitHub for cool things." data-ru="Смотрите мой GitHub для классных проектов.">
+      Смотрите мой GitHub для классных проектов.
+    </p>
+  </section>
+
+  <section>
+    <h2 data-en="Contact" data-ru="Контакты">Контакты</h2>
+    <p data-en="Email me at your@email.com" data-ru="Пишите мне на your@email.com">
+      Пишите мне на your@email.com
+    </p>
+  </section>
+
+  <script>
+    function setLang(lang) {
+      document.querySelectorAll('[data-en]').forEach(el => {
+        el.textContent = el.dataset[lang];
+      });
+      document.documentElement.lang = lang;
+    }
+  </script>
+</body>
+</html>
